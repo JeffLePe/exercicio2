@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':cad-client-api')
+    compile project(':cad-client-ejb-cli')
+}

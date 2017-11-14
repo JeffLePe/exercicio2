@@ -1,0 +1,23 @@
+apply plugin: 'ear'
+
+dependencies {
+    deploy project(path: ':cad-client-war', configuration: 'archives')
+    deploy project(path: ':cad-client-ejb')
+    earlib project(':cad-client-core')
+    earlib project(':cad-client-api')
+    earlib project(':cad-client-ejb-cli')
+}
+
+ear {
+    deploymentDescriptor {
+        def warName = project(':cad-client-war').name
+        def warVersion = project(':cad-client-war').version
+        def warFileName = warName + '-' + warVersion + '.war'
+        webModule(warFileName, 'client')
+        
+        def ejbName = project(':cad-client-ejb').name
+        def ejbVersion = project(':cad-client-ejb').version
+        def ejbFileName = ejbName + '-' + ejbVersion + '.jar'
+        module(ejbFileName, 'ejb')
+    }
+}

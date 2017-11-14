@@ -1,0 +1,1 @@
+include "cad-client-api", "cad-client-ear", "cad-client-war", "cad-client-core", "cad-client-ejb", "cad-client-ejb-cli"
